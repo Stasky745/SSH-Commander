@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SSH Commander</string>
+    <string name="commands">Commands</string>
+    <string name="date_created">Date created</string>
+    <string name="empty_commands">There are no saved commands</string>
+    <string name="last_time_used">Last time used</string>
+    <string name="log">Log</string>
+    <string name="password">Password</string>
+    <string name="password_not_set">&lt;Password not set&gt;</string>
+    <string name="server">Server</string>
+    <string name="terminal">Terminal</string>
+    <string name="username">Username</string>
+</resources>
