@@ -12,20 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TabAdapter extends FragmentStateAdapter {
-    ArrayList<CommandEntity> commandList;
-    public TabAdapter(@NonNull FragmentActivity fragmentActivity, List<CommandEntity> commandList) {
+    public TabAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
-        this.commandList = new ArrayList<>(commandList);
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return CommandsFragment.newInstance(commandList);
+        return CommandsFragment.newInstance();
     }
 
     @Override
     public int getItemCount() {
         return 2;
     }
+
 }

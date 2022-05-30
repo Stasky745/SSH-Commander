@@ -30,7 +30,7 @@
         app:tint="@android:color/holo_green_light" />
 
     <TextView
-        android:id="@+id/TV_description"
+        android:id="@+id/TV_command_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -47,33 +47,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/IV_command_open"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_description">
+        app:layout_constraintTop_toBottomOf="@+id/TV_command_description">
 
         <TextView
             android:id="@+id/TV_command_usernameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:text="@string/username"
             android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/TV_command_argsLabel"
+            app:layout_constraintTop_toBottomOf="@+id/TV_command_argsLabel" />
 
         <TextView
             android:id="@+id/TV_command_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@+id/TV_command_usernameLabel"
-            app:layout_constraintEnd_toStartOf="@+id/IV_command_edit"
+            app:layout_constraintEnd_toEndOf="@+id/TV_command_args"
             app:layout_constraintStart_toEndOf="@+id/TV_command_usernameLabel"
             app:layout_constraintTop_toTopOf="@+id/TV_command_usernameLabel"
             tools:text="stasky" />
@@ -133,18 +129,17 @@
             android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/TV_command_serverLabel"
-            app:layout_constraintTop_toBottomOf="@+id/TV_command_serverLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/TV_command_portLabel" />
 
         <TextView
             android:id="@+id/TV_command_lastTimeUsed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="@+id/TV_command_server"
             app:layout_constraintStart_toEndOf="@+id/TV_command_lastTimeUsedLabel"
-            app:layout_constraintTop_toBottomOf="@+id/TV_command_server"
+            app:layout_constraintTop_toTopOf="@+id/TV_command_lastTimeUsedLabel"
             tools:text="12/05/2022 12:58:32" />
 
         <TextView
@@ -197,15 +192,74 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_edit"
             app:tint="@android:color/holo_orange_dark" />
+
+        <TextView
+            android:id="@+id/TV_command_portLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/port"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/TV_command_serverLabel"
+            app:layout_constraintTop_toBottomOf="@+id/TV_command_serverLabel" />
+
+        <TextView
+            android:id="@+id/TV_command_port"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@+id/TV_command_server"
+            app:layout_constraintStart_toEndOf="@+id/TV_command_portLabel"
+            app:layout_constraintTop_toTopOf="@+id/TV_command_portLabel"
+            tools:text="2233" />
+
+        <TextView
+            android:id="@+id/TV_command_argsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/args"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TV_command_args"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@+id/IV_command_edit"
+            app:layout_constraintStart_toEndOf="@+id/TV_command_argsLabel"
+            app:layout_constraintTop_toTopOf="@+id/TV_command_argsLabel"
+            tools:text="-l a23 -u 1324" />
+
+        <ImageView
+            android:id="@+id/IV_command_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/IV_command_edit"
+            app:layout_constraintStart_toStartOf="@+id/IV_command_edit"
+            app:layout_constraintTop_toBottomOf="@+id/IV_command_edit"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            app:tint="@android:color/darker_gray" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/IV_command_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/arrow_down_float" />
+        app:layout_constraintTop_toBottomOf="@+id/CL_command_moreInfo"
+        app:srcCompat="@drawable/chevron_down" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
-import com.ntwk.sshcommander.HiltApplication;
 import com.ntwk.sshcommander.ui.utilities.Constants;
 
 import java.io.IOException;
@@ -18,9 +17,10 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ActivityComponent;
+import dagger.hilt.components.SingletonComponent;
 
 @Module
-@InstallIn(ActivityComponent.class)
+@InstallIn(SingletonComponent.class)
 public class GeneralModule {
 
     @Provides

@@ -30,11 +30,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.VP_viewPager);
         TabLayout tabLayout = findViewById(R.id.TL_tabs);
 
-        List<CommandEntity> commandList = repository.getAllCommands();
-
-        TabAdapter adapter = new TabAdapter(this, commandList);
-
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(new TabAdapter(this));
 
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {

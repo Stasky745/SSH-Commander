@@ -1,13 +1,28 @@
 <resources>
+    <string name="accept">Accept</string>
+    <string name="add">Add</string>
+    <string name="args">Args</string>
     <string name="app_name">SSH Commander</string>
+    <string name="cancel">Cancel</string>
     <string name="commands">Commands</string>
+    <string name="command">Command</string>
+    <string name="command_exists">Command exists</string>
+    <string name="command_exists_body">Please change the name to a new one or edit the existing command.</string>
     <string name="date_created">Date created</string>
+    <string name="delete_command">Delete command</string>
+    <string name="delete_command_body">Are you sure you want to delete the command?</string>
+    <string name="edit_command">Edit command</string>
     <string name="empty_commands">There are no saved commands</string>
+    <string name="error_new_command">Name, command, server and port can\'t be empty</string>
     <string name="last_time_used">Last time used</string>
     <string name="log">Log</string>
+    <string name="new_command">New command</string>
     <string name="password">Password</string>
+    <string name="password_blank">Password (Leave blank to not save)</string>
     <string name="password_not_set">&lt;Password not set&gt;</string>
+    <string name="port">Port</string>
     <string name="server">Server</string>
     <string name="terminal">Terminal</string>
+    <string name="title">Title</string>
     <string name="username">Username</string>
 </resources>
