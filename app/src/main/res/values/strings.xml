@@ -2,6 +2,8 @@
     <string name="accept">Accept</string>
     <string name="add">Add</string>
     <string name="args">Args</string>
+    <string name="args_flag">Flag (required)</string>
+    <string name="args_value">Value</string>
     <string name="app_name">SSH Commander</string>
     <string name="cancel">Cancel</string>
     <string name="commands">Commands</string>

@@ -17,16 +17,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.ntwk.sshcommander.R;
+import com.ntwk.sshcommander.ui.adapters.ArgsAdapterRV;
 import com.ntwk.sshcommander.ui.entities.CommandEntity;
 import com.ntwk.sshcommander.ui.view_models.CommandViewModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class CommandDialog extends DialogFragment {
@@ -46,9 +51,12 @@ public class CommandDialog extends DialogFragment {
 
     private TextInputLayout argsLayout;
 
+    private ArgsAdapterRV adapter;
+
     private RecyclerView argsRV;
     private TextView argsTV;
     private ImageView argsIV;
+    private ImageView addArgIV;
 
     private CommandViewModel commandViewModel;
 
@@ -121,7 +129,7 @@ public class CommandDialog extends DialogFragment {
                             newCommand.password = password.getText().toString();
                     }
 
-                    //TODO: newCommand.args
+                    newCommand.args = adapter.getArgsMap();
 
                     // If we are editing, we keep the same info from the older object
                     if (commandEntity != null) {
@@ -163,12 +171,22 @@ public class CommandDialog extends DialogFragment {
         argsRV = view.findViewById(R.id.RV_comDialog_args);
         argsIV = view.findViewById(R.id.IV_comDialog_args);
         argsTV = view.findViewById(R.id.TV_comDialog_args);
+        addArgIV = view.findViewById(R.id.IV_comDialog_addArg);
 
         setVisibilities();
         if(commandEntity != null)
             fillInformation();
 
+        setRV();
+
         return view;
+    }
+
+    private void setRV() {
+        Map<String, String> map = commandEntity != null && commandEntity.args != null ? commandEntity.args : new HashMap<>();
+        adapter = new ArgsAdapterRV(getActivity(), map);
+        argsRV.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
+        argsRV.setAdapter(adapter);
     }
 
     private void setVisibilities() {
@@ -183,8 +201,8 @@ public class CommandDialog extends DialogFragment {
                 argsLayout.setVisibility(View.VISIBLE);
 
                 argsRV.setVisibility(View.GONE);
-                argsIV.setVisibility(View.GONE);
                 argsTV.setVisibility(View.GONE);
+                addArgIV.setVisibility(View.GONE);
 
                 argsIV.setImageResource(R.drawable.table);
             }
@@ -192,11 +210,28 @@ public class CommandDialog extends DialogFragment {
                 argsLayout.setVisibility(View.GONE);
 
                 argsRV.setVisibility(View.VISIBLE);
-                argsIV.setVisibility(View.VISIBLE);
                 argsTV.setVisibility(View.VISIBLE);
+                addArgIV.setVisibility(View.VISIBLE);
 
                 argsIV.setImageResource(R.drawable.text_box_edit);
             }
+        });
+
+        addArgIV.setOnClickListener(view -> {
+            Map<String, String> map = new LinkedHashMap<>();
+            for(int i = 0; i < argsRV.getChildCount(); i++){
+                View rvView = argsRV.getChildAt(i);
+                TextInputEditText TIET_flag = rvView.findViewById(R.id.TIET_args_flag);
+                TextInputEditText TIET_value = rvView.findViewById(R.id.TIET_args_value);
+
+                if (TIET_flag.getText() != null && !TIET_flag.getText().toString().equals("")) {
+                    map.put(
+                            TIET_flag.getText().toString(),
+                            TIET_value.getText() != null ? TIET_value.getText().toString() : ""
+                    );
+                }
+            }
+            adapter.addItem(map);
         });
     }
 

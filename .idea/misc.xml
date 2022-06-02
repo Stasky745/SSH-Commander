@@ -14,6 +14,10 @@
         <entry key="..\:/Projectes/SSHCommander/app/src/main/res/layout/commands_fragment.xml" value="0.5541666666666667" />
         <entry key="..\:/Projectes/SSHCommander/app/src/main/res/layout/commands_fragment_item.xml" value="0.553125" />
         <entry key="..\:/Projectes/SSHCommander/app/src/main/res/layout/recycler_view_fragment.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/rribera/AndroidStudioProjects/SSH-Commander/app/src/main/res/layout/commands_args_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rribera/AndroidStudioProjects/SSH-Commander/app/src/main/res/layout/commands_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rribera/AndroidStudioProjects/SSH-Commander/app/src/main/res/layout/commands_fragment_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rribera/AndroidStudioProjects/SSH-Commander/app/src/main/res/layout/recycler_view_fragment.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
